@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     [Space(15)]
     [Header("Patrol")]
     [SerializeField] private Transform[] patrolPositions;
-    [SerializeField] private Transform TATGET___;
 
     private Transform player;
     private NavMeshAgent agent;
