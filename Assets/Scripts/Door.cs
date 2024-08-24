@@ -4,10 +4,11 @@ using UnityEngine;
 public class Door : Interactable
 {
     [SerializeField] private bool canBeOpened = true;
+    [SerializeField] private bool isRight = false;
     public bool isOpened { get; private set; } = false;
     private bool isInProcess = false;
 
-    public override void Interact(object[] props = null)
+    public override void Interact()
     {
         if (!isInProcess)
         {
@@ -25,7 +26,11 @@ public class Door : Interactable
         {
             for (int i = 0; i < angle; i++)
             {
-                transform.rotation *= Quaternion.Euler(0, 1, 0);
+                if (isRight)
+                {
+                    transform.rotation *= Quaternion.Euler(0, -1, 0);
+                } else transform.rotation *= Quaternion.Euler(0, 1, 0);
+
                 yield return new WaitForSeconds(duration);
             }
             isOpened = true;
@@ -33,8 +38,12 @@ public class Door : Interactable
         else
         {
             for (int i = 0; i < angle; i++)
-            {
-                transform.rotation *= Quaternion.Euler(0, -1, 0);
+            {   
+                if (isRight)
+                {
+                    transform.rotation *= Quaternion.Euler(0, 1, 0);
+                }
+                else transform.rotation *= Quaternion.Euler(0, -1, 0);
                 yield return new WaitForSeconds(duration);
             }
             isOpened = false;

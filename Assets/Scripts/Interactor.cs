@@ -13,7 +13,7 @@ public class Interactor : MonoBehaviour
     {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 5f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 3.5f))
         {
             Interactable interactable = hit.transform.gameObject.GetComponent<Interactable>();
             if (interactable != null && interactable.isInteractable)

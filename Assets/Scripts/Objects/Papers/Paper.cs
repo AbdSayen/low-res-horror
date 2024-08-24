@@ -6,8 +6,9 @@ public class Paper : Interactable
     [TextArea] public string TextEn;
     public bool isReaded { get; private set; } = false;
 
-    public override void Interact(object[] props = null)
+    public override void Interact()
     {
+        GameObject.FindGameObjectWithTag("ReadPanel").GetComponent<ReadPanel>().Open(Game.language == Language.ru ? TextRu : TextEn);
         Read();
     }
 
