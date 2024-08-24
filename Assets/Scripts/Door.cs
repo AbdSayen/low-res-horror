@@ -12,7 +12,14 @@ public class Door : Interactable
     {
         if (!isInProcess)
         {
-            StartCoroutine(OpenDoor());
+            if (canBeOpened)
+            {
+                StartCoroutine(OpenDoor());
+            }
+            else
+            {
+                Game.PushMessage(this, Translator.GetTranslate("Дверь не может быть открыта", "The door cannot be opened"), 1.5f);
+            }
         }
     }
 

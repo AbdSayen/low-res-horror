@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBeOpened: 1
+  isRight: 0
 --- !u!1 &6121620046910094622
 GameObject:
   m_ObjectHideFlags: 0

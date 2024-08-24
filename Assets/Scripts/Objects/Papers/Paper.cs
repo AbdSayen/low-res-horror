@@ -8,7 +8,7 @@ public class Paper : Interactable
 
     public override void Interact()
     {
-        GameObject.FindGameObjectWithTag("ReadPanel").GetComponent<ReadPanel>().Open(Game.language == Language.ru ? TextRu : TextEn);
+        GameObject.FindGameObjectWithTag("ReadPanel").GetComponent<ReadPanel>().Open(Translator.GetTranslate(TextRu, TextEn));
         Read();
     }
 
